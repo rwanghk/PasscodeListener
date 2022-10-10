@@ -1,7 +1,7 @@
 /**
  * To generate a listener with closure for passcode
  */ 
-function generateListener(passcode, callback, delayMs = 1000) => { 
+function generateListener(passcode, callback, delayMs = 1000) { 
     const arr = [...passcode];
     let i = 0;
     let lastKeydownTime = Number.MAX_SAFE_INTEGER - delayMs; //If time between keydown is beyond delay(ms) will reset the counter
