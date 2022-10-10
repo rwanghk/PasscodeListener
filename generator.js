@@ -7,6 +7,11 @@ function generateListener(passcode, callback, delayMs = 1000) {
     let lastKeydownTime = Number.MAX_SAFE_INTEGER - delayMs; //If time between keydown is beyond delay(ms) will reset the counter
     return function(evt) {
         let key = evt.key;
+        if (["Control", "Alt", "Shift", "Meta", "Escape", "CapsLock", "NumLock", , "ScrollLock", "End", "Home", 
+             "PageDown", "PageUp", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowUp", "Super", "Symbol", "SymbolLock",
+             "Unidentified", "AltGraph", "Fn", "FnLock", "Hyper", "Backspace", "Clear", "Insert" ].includes(key)) {
+            return;
+        }
         if ((arr[i] === key) && (new Date().getTime() < (lastKeydownTime + delayMs))) { // Correct next code
             lastKeydownTime = new Date().getTime();
             if (++i === arr.length) {
